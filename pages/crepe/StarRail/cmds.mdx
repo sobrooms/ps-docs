@@ -4,7 +4,13 @@
 Creates or deletes an account.\
 Usage:
 ```sh
-/account create rrryfoo 69
+/account (delete/create) (username/uid)
+
+Example for deleting accounts:
+/account delete 60
+
+Example for creating accounts:
+/account create rrryfoo 202
 ```
 
 ## /target
@@ -12,6 +18,9 @@ Use this command before using battle/give\
 Usage:
 ```sh
 /target (uid)
+
+Example:
+/target 393
 ```
 ## /battle
 Starts a battle.\
@@ -19,6 +28,9 @@ List of enemy IDs [here](./cmds/#monster-ids)\
 Usage:
 ```sh
 /battle (enemy id)
+
+Example:
+/battle 102202001 102202001
 ```
 
 ## /avatar
@@ -26,10 +38,46 @@ Gives an avatar.\
 Usage:
 ```sh
 /avatar (add/remove) (avatarId)
-example:
+Example:
 /avatar add 1001
 ```
+## /item
+Gives an item.\
+Usage:
+```sh
+/item (item ID) or /item giveall
+```
 
+## /ban
+Bans a user.\
+Usage:
+```sh
+/ban (uid)
+
+Example:
+/ban 29
+```
+
+## /kick
+Kicks a user from the server\
+Usage:
+```sh
+/kick
+```
+
+## /kickall
+Kicks all users connected.\
+Usage:
+```sh
+/kickall
+```
+
+## /debug
+Literally debugs lmao\
+Usage:
+```sh
+/debug
+```
 ## /exit
 Shuts the server down.\
 Usage:
@@ -49,7 +97,8 @@ Puts the server in maintenance mode.\
 Usage:
 ```sh
 /maintenance (on/off) (maintenance message)
-example:
+
+Example:
 /maintenance on deez nuts
 ```
 
@@ -78,8 +127,9 @@ example:
 "AvatarID": 1204, - Jing Yuan
 "AvatarID": 1205, - Blade
 "AvatarID": 1206, - Sushang
-/avatar giveall
+"GiveAll": /avatar giveall
 ```
+
 ## Plane IDs
 ```json
 "Southern Snow Plains": "20101 (you need to go here to battle)"
