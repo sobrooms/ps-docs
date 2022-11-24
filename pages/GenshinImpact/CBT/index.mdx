@@ -1,6 +1,6 @@
 import Callout from 'nextra-theme-docs/callout'
 # Connecting to *anime game* CBT PS
-### Guide credits: Genshin CBTServer Tutorial v2.0.0 [TheScore#1234](https://discord.com/users/367308033052770307)
+
 ## Required to play
 
 * [normal soggy](https://github.com/LDAsuku/soggy) and [soggy_resources](https://codeberg.org/LDA_suku/soggy_resources)
@@ -30,13 +30,19 @@ vcpkg install protobuf lua[cpp]:x64-windows
 
 ### Building soggy
 1. Open soggy folder with Visual Studio
-2. Build soggy.exe - Output folder will be in .\out\build\x{'{Build-Config}'}
-3. Move soggy_resources to the output folder and rename it to resources
-4. Run soggy.exe and dispatch.py (using "python dispatch.py")
-5. Run the game
-## Fiddler Script
+2. Build soggy.exe
+3. Built output folder will be in .\out\build\x{'{Build-Config}'}
 
-```fiddlerscriptetext
+## Running the server
+1. Move `soggy_resources` to the output folder and rename it to `resources`
+2. Run the game server (.\out\build\x{'{Build-Config}'}\soggy.exe)
+3. Run web dispatch (.\soggy\dispatch.py)
+```ps
+python dispatch.py
+```
+## Connecting
+
+```js
 import System;
 import System.Windows.Forms;
 import Fiddler;
@@ -52,4 +58,10 @@ class Handlers
     }
 };
 ```
-After putting that in fiddler, save it and open *anime game cbt1*
+1. Save the script
+2. Run *anime game cbt 1*
+
+## Guide credits
+* Genshin CBTServer Tutorial v2.0.0: [TheScore#1234](https://discord.com/users/367308033052770307)\
+* *Anime game cbt* software reimplementation: [LDAsuku](https://github.com/LDAsuku)
+* Rewritten (slightly) guide: [rrryfoo#8618](https://discord.com/users/716491639857872928)
