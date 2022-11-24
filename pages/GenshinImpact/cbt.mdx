@@ -1,0 +1,46 @@
+import Callout from 'nextra-theme-docs/callout'
+# Connecting to *anime game* CBT PS
+## Required to play
+
+* [Soggy (thx score)](https://cdn.discordapp.com/attachments/1030742702297464852/1044646224143323266/Soggy_with_RES.rar)
+* [CBT 1](https://archive.org/download/genshin-impact-cbt-1/Genshin%20Impact%20CBT1.rar)
+* [Visual Studio (2022)](https://visualstudio.microsoft.com/)
+* [vcpkg](https://github.com/Microsoft/vcpkg)
+* [Python 3 or higher](https://www.python.org/downloads/)
+
+<Callout emoji="⚠️" type="warning">
+  In Visual Studio, you must get the "Desktop Development with C++" plugin
+</Callout>
+
+## Connecting
+1. Download soggy from [here](./cbt#required-to-play)
+Install dependencies: [vcpkg](./cbt#required-to-play)\
+2. Open your terminal on vcpkg and type:
+```sh
+vcpkg install protobuf lua[cpp]:x64-windows
+```
+
+3. Run soggy.exe and dispatch.py (python dispatch.py)
+
+### Fiddler Script
+
+```fiddlerscriptetext
+import System;
+import System.Windows.Forms;
+import Fiddler;
+import System.Text.RegularExpressions;
+class Handlers
+{
+    static function OnBeforeRequest(oS: Session) {
+        if(oS.host.EndsWith(".yuanshen.com")  || oS.host.EndsWith(".yuanshen.com:12401") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com") || oS.uriContains("http://overseauspider.yuanshen.com:8888/log")) {
+            oS.oRequest.headers.UriScheme = "http";
+            oS.host = "127.0.0.1";
+            oS.port = 8099;
+        }
+    }
+};
+```
+<Callout emoji="💡">
+  **Tip**\
+  Go to [GIO](https://discord.gg/5ujkvbWxgR) and ask there for help if you are having problems.
+</Callout>
