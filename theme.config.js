@@ -13,8 +13,9 @@ export default {
   head: (
     <>
       <meta name="description" content="Documentation on how to connect to *anime game* private servers." />
-      <meta name="theme-color" content="#5284d9" />
+      <meta name="theme-color" content="#c7a09d" />
       <link rel="shortcut icon" href="./public/favicon.ico" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
     </>
   ),
   search: true,
