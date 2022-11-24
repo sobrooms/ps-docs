@@ -26,3 +26,4 @@ export default {
   prevLinks: true,
   footerText: <>{new Date().getFullYear()} © | built with Nextra | made by rrryfoo#8618</>
 }
+
