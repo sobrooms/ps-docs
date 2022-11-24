@@ -1,21 +1,27 @@
 export default {
-  github: 'https://github.com/mangorifo/ps-ayakads',
-  docsRepositoryBase: 'https://github.com/mangorifo/ps-ayakads/',
-  titleSuffix: ' – rrryfoo#8618',
+  github: 'https://github.com/mangorifo/ps-docs',
+  docsRepositoryBase: 'https://github.com/mangorifo/ps-docs/',
+  titleSuffix: ' – Docs on how to connect to PS',
   logo: (
     <>
       <span className="mr-2 font-extrabold hidden md:inline"> | </span>
       <span className="text-gray-600 font-normal hidden md:inline">
-        made by rrryfoo#8618
+        Documentation on how to connect to PS
       </span>
     </>
   ),
   head: (
-    <link rel="shortcut icon" href="./public/favicon.ico" />
+    <>
+      <meta name="description" content="Documentation on how to connect to *anime game* private servers." />
+      <meta name="theme-color" content="#5284d9" />
+      <link rel="shortcut icon" href="./public/favicon.ico" />
+    </>
   ),
   search: true,
-  prevLinks: false,
-  nextLinks: false,
-  footer: false,
+  footer: true,
+  footerEditLink: false,
   darkMode: true,
+  nextLinks: true,
+  prevLinks: true,
+  footerText: <>{new Date().getFullYear()} © | built with Nextra | made by rrryfoo#8618</>
 }
