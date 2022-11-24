@@ -1,6 +1,6 @@
 import Callout from 'nextra-theme-docs/callout'
 # Connecting to *anime game* CBT PS
-### Guide credits: [TheScore#1234](https://discord.com/users/367308033052770307)
+### Guide credits: Genshin CBTServer Tutorial v2.0.0 [TheScore#1234](https://discord.com/users/367308033052770307)
 ## Required to play
 
 * [soggy - built with res](https://cdn.discordapp.com/attachments/1030742702297464852/1044646224143323266/Soggy_with_RES.rar) or [normal soggy](https://github.com/LDAsuku/soggy) and [soggy_resources](https://codeberg.org/LDA_suku/soggy_resources)
@@ -50,7 +50,7 @@ After putting that in fiddler, save it and open *anime game*
   The owner literally owns nothing (owner is deleted user), so there's no moderation there
 </Callout>
 
-## Manual building
+## building manually (?)
 1. Clone or download soggy and soggy_resources and install dependencies (vcpkg)
 2. Open your terminal on vcpkg and type in:
 ```sh
@@ -59,8 +59,7 @@ vcpkg install protobuf lua[cpp]:x64-windows
 
 ### building
 1. Open soggy folder with Visual Studio
-2. Build soggy.exe
-3. Output folder will be in .\out\build\x(Build-Config)
-4. Move soggy_resources to the output folder and rename it to resources
-5. Run soggy.exe and dispatch.py (using "python dispatch.py")
-6. Run the game
+2. Build soggy.exe - Output folder will be in .\out\build\x{'{Build-Config}'}
+3. Move soggy_resources to the output folder and rename it to resources
+4. Run soggy.exe and dispatch.py (using "python dispatch.py")
+5. Run the game
