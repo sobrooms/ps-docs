@@ -2,9 +2,8 @@ import Callout from 'nextra-theme-docs/callout'
 # Connecting to *anime game* CBT PS
 ## Required to play
 
-* [Soggy (thx score)](https://cdn.discordapp.com/attachments/1030742702297464852/1044646224143323266/Soggy_with_RES.rar)
-* [CBT 1](https://archive.org/download/genshin-impact-cbt-1/Genshin%20Impact%20CBT1.rar)
-* [Visual Studio (2022)](https://visualstudio.microsoft.com/)
+* [soggy - built with res (thx score)](https://cdn.discordapp.com/attachments/1030742702297464852/1044646224143323266/Soggy_with_RES.rar) or [normal soggy](https://github.com/LDAsuku/soggy) and [soggy_resources](https://codeberg.org/LDA_suku/soggy_resources)
+
 * [vcpkg](https://github.com/Microsoft/vcpkg)
 * [Python 3 or higher](https://www.python.org/downloads/)
 
@@ -14,15 +13,11 @@ import Callout from 'nextra-theme-docs/callout'
 
 ## Connecting
 1. Download soggy from [here](./cbt#required-to-play)
-Install dependencies: [vcpkg](./cbt#required-to-play)\
-2. Open your terminal on vcpkg and type:
-```sh
-vcpkg install protobuf lua[cpp]:x64-windows
-```
 
-3. Run soggy.exe and dispatch.py (python dispatch.py)
+2. Run soggy.exe and dispatch.py (using "python dispatch.py")
+3. Run the game
 
-### Fiddler Script
+## Fiddler Script
 
 ```fiddlerscriptetext
 import System;
@@ -44,3 +39,19 @@ class Handlers
   **Tip**\
   Go to [GIO](https://discord.gg/5ujkvbWxgR) and ask there for help if you are having problems.
 </Callout>
+
+## Manual building
+1. Clone or download soggy and soggy_resources
+2. Install dependencies (vcpkg)
+3. Open your terminal on vcpkg and type in:
+```sh
+vcpkg install protobuf lua[cpp]:x64-windows
+```
+
+### building
+1. Open soggy folder with Visual Studio
+2. Build soggy.exe
+3. Output folder will be in .\out\build\x(Build-Config)
+4. Move soggy_resources to the output folder and rename it to resources
+5. Run soggy.exe and dispatch.py (using "python dispatch.py")
+6. Run the game
