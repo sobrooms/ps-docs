@@ -36,3 +36,7 @@ yarn-error.log*
 next-env.d.ts
 # hide api
 /pages/api/
+
+# replit
+.replit*
+replit.nix*
