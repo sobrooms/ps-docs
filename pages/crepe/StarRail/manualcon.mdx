@@ -1,0 +1,74 @@
+import Callout from 'nextra-theme-docs/callout'
+
+# Connecting to CrepeSR manually
+## Required to play
+* [Latest version of Python](https://www.python.org/downloads/)
+* [Node.js v14](https://nodejs.org/dist/v18.12.1/node-v18.12.1.pkg)
+* [mitmproxy](https://snapshots.mitmproxy.org/9.0.1/mitmproxy-9.0.1-windows-x64-installer.exe) or [Fiddler Classic](https://telerik-fiddler.s3.amazonaws.com/fiddler/FiddlerSetup.exe)
+* [CrepeSR](https://git.crepe.moe/Crepe-Inc/CrepeSR) and [CrepeSR Resources](https://git.crepe.moe/Crepe-Inc/CrepeSR-Resources)
+* [*anime game 2*](https://anonfiles.com/JdYejex2y7/StarRail_cbt_rar)
+* [MongoDB Compass](https://www.mongodb.com/try/download/compass) and [MongoDB Community](https://www.mongodb.com/try/download/community)
+* [Visual Studio (C++ workload)](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)
+
+## Setup (With fiddler)
+1. Download MongoDB Compass from the link above. Afterwards start the app and click on the "Connect" button. You can minimized the app afterwards.
+
+2. Download CrepeSR from the link above and press on the green button called "Code" then press "Download ZIP" do the same for the CrepeSR-Resources link.
+
+3. Extract the "CrepeSR-main" folder and head into the src folder and create a new folder called "data"
+
+4. Then extract the "CrepeSR-Resources-main" folder and click on it and copy everything (except the README.md) into "CrepeSR-main\src\data"
+
+5. After you've done that go to Fiddler Classic link and install it then run it then go to Tools > Options > Connections > Fiddler Classic listens on port and set the port to 8080
+
+6. Afterwards go to the right of the screen and press on FiddlerScript and paste this script this:
+
+```js
+import System.Windows.Forms;
+import Fiddler;
+import System.Text.RegularExpressions;
+
+class Handlers
+{
+    static function OnBeforeRequest(oS: Session) {
+        if (oS.host.Equals("overseauspider.yuanshen.com:8888")) {
+            oS.oRequest.FailSession(404, "Not Found", "Not Found");
+        }
+        else if(oS.host.EndsWith(".yuanshen.com") || oS.host.EndsWith(".starrails.com") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com")) {
+            oS.host = "localhost";
+        }
+    }
+};
+```
+
+7. Save the script
+
+## Setup (with mitmproxy)
+1. Download mitmproxy from the link given above.
+2. First of all, Shift + right click on the CrepeSR server folder. (the same folder with proxy.py)
+3. Then click on “open powershell window here”.
+4. When powershell loads, type in `mitmdump -s proxy.py -k`
+5. Go to settings, then search “proxy” in the search bar.
+6. Select the setting for editing proxy stuff
+7. Then find “Use a proxy server”.
+```addressnportwhatever
+Address - "127.0.0.1"
+Port - "8080"
+```
+9. And toggle it on in the command prompt as administator.
+(the command is: `certutil -addstore root %USERPROFILE%\.mitmproxy\mitmproxy-ca-cert.cer`)
+<Callout emoji="⚠️">
+  **NOTE**\
+   Do not turn on the proxy server in the settings app.
+</Callout>
+
+## Connecting to CrepeSR
+1. Install NodeJS from the link above
+2. Then go to your private server folder (the folder with `proxy.py`) and hold shift and press right click and click on "Open PowerShell window here" (Or on Windows 11 "Open in Terminal")
+3. In the terminal window type `npm install`. You only need to use this command once. (You need to make sure you ABSOLUTELY HAVE Visual Studio with the Desktop development with C++ plugin installed it will be one of the options after you install it)
+4. After the "npm install" command has finished type "npm run start" and crepeSR should start.
+
+## Logging in
+1. Within the CrepeSR command prompt, create an account with the command: `account create [username] [uid]` (e.g. `account create CrepeSR 1`)
+
+2. Open `StarRail.exe`, login with your username.

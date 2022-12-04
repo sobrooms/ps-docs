@@ -1,5 +1,6 @@
 {
   "conwhsr": "Connecting to CrepeSR with CrepePlus",
-  "troubleshooting": "Troubleshooting",
-  "cmds": "Commands"
+  "manualcon": "Connecting to CrepeSR",
+  "cmds": "Commands",
+  "troubleshooting": "Troubleshooting"
 }
