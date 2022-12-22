@@ -34,6 +34,6 @@ export default {
   },
   i18n: [
     { locale: 'en', text: 'English' },
-    { locale: 'ph', text: 'Filipino/Tagalog' }
+    { locale: 'tl', text: 'Filipino/Tagalog' }
   ]
 }
