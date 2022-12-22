@@ -1,5 +1,11 @@
 {
   "index": "Introduction",
   "GenshinImpact": "GI",
-  "crepe": "Crêperie - anime game software reimplementations"
+  "crepe": "Crepe Inc",
+  "DiscordServer": {
+    "title": "Discord Server",
+    "type": "page",
+    "href": "https://discord.gg/ruVzdxWMUP",
+    "newWindow": true
+  }
 }

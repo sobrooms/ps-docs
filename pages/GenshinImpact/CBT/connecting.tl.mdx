@@ -1,0 +1,67 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Pagkonekta sa anime game CBT PS
+
+## Kinakailangan upang i-laro
+
+* [soggy](https://github.com/LDAsuku/soggy) at [soggy_resources](https://codeberg.org/LDA_suku/soggy_resources)
+
+* [vcpkg](https://github.com/Microsoft/vcpkg)
+* [Python 3 o mataas (inirerekomenda ang pinakabagong bersyon)](https://www.python.org/downloads/)
+* [Fiddler Classic](https://www.telerik.com/download/fiddler)
+
+<Callout type="warning">
+  **Sa Visual Studio, kailangan mong makuha ang mga plugin na "Desktop Development na may C ++" at "C ++ CMake tool para sa Windows"**
+</Callout>
+
+
+<Callout type="info">
+  Pumunta ka sa [GIO](https://discord.gg/5ujkvbWxgR) at humingi ka ng tulong doon kung may problema ka.
+  Ang may ari ay literal na nagmamay ari ng wala (ang may ari ay *Deleted User*), kaya walang moderasyon doon
+</Callout>
+
+## Connecting
+1. Mag clone o mag download ng `soggy` at `soggy_resources` at mag install ng mga dependency (vcpkg)
+2. Buksan ang iyong terminal sa vcpkg at i-type ito:
+```sh
+vcpkg install protobuf lua[cpp]:x64-windows
+```
+
+### Building soggy
+1. I-buksan ang `soggy` folder sa `Visual Studio`
+2. I-build ang `soggy.exe`
+3. Ang built output folder ay nasa `.\out\build\x{Build-Config}`
+
+## Pagpapatakbo/pagstastart ng server
+1. Ilipat sa output folder at palitan ang pangalan nito *from* `soggy_resources` *to* `resources`
+2. I-buksan ang server ng laro `(.\out\build\x{Build-Config}\soggy.exe)`
+3. I-start ang web dispatch `(.\soggy\dispatch.py)`
+```shell
+python dispatch.py
+```
+## Talagang pagkokonekta
+
+1. Sa fiddler classic, ilagay ang itong script:
+```js
+import System;
+import System.Windows.Forms;
+import Fiddler;
+import System.Text.RegularExpressions;
+class Handlers
+{
+    static function OnBeforeRequest(oS: Session) {
+        if(oS.host.EndsWith(".yuanshen.com")  || oS.host.EndsWith(".yuanshen.com:12401") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com") || oS.uriContains("http://overseauspider.yuanshen.com:8888/log")) {
+            oS.oRequest.headers.UriScheme = "http";
+            oS.host = "127.0.0.1";
+            oS.port = 8099;
+        }
+    }
+};
+```
+2. I-save ang script
+3. I-buksan *anime game cbt 1*
+
+## Guide credits
+* *Anime game* CBTServer Tutorial v2.0.0: [TheScore#1234](https://discord.com/users/367308033052770307)
+* *Anime game cbt* software reimplementation: [LDAsuku](https://github.com/LDAsuku)
+* Rewritten (slightly) guide: [rrryfoo#8618](https://discord.com/users/716491639857872928)

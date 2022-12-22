@@ -40,3 +40,11 @@ next-env.d.ts
 # replit
 .replit*
 replit.nix*
+
+# other
+.eslintrc.json
+.idea
+.breakpoints
+runi.bat*
+ms.bat*
+/bscripts*

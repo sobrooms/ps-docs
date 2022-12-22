@@ -1,13 +1,16 @@
 export default {
+  editLink: {
+    text: "Edit this page on GitHub →"
+  },
   useNextSeoProps() {
     return {
       titleTemplate: '%s - The PS Documentation'
     }
   },
   project: {
-    link: 'https://github.com/mangorifo/ps-docs'
+    link: 'https://github.com/mangorifo/ps-docs/tree/main'
   },
-  docsRepositoryBase: 'https://github.com/mangorifo/ps-docs/',
+  docsRepositoryBase: 'https://github.com/mangorifo/ps-docs/tree/main',
   titleSuffix: ': The PS Documentation',
   logo: (
     <>
@@ -36,8 +39,4 @@ export default {
     { locale: 'en', text: 'English' },
     { locale: 'tl', text: 'Filipino/Tagalog' }
   ],
-  primaryHue: {
-    dark: 50,
-    light: 25
-  }
 }

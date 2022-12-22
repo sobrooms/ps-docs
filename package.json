@@ -1,14 +1,15 @@
 {
-  "name": "nextra",
+  "name": "ps-docs",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
     "dev": "next",
     "start": "next start",
-    "build": "next build"
+    "build": "next build",
+    "lint": "next lint"
   },
-  "author": "Shu Ding",
+  "author": "mangorifo",
   "license": "MIT",
   "dependencies": {
     "next": "^12.1.0",
