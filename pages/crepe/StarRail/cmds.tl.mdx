@@ -1,0 +1,171 @@
+# Commands
+
+## /account
+Gumagawa o nagtatanggal ng *account*\
+Paggamit:
+```sh
+/account (delete/create) (username/uid)
+
+Halimbawa para sa pagtanggal ng *account*:
+/account delete 60
+
+Halimbawa para sa paggagawa ng *account*:
+/account create rrryfoo 202
+```
+
+## /target
+Gamitin ang command na ito bago gamitin ang *battle/give* command.
+Paggamit:
+```sh
+/target (uid)
+
+Halimbawa:
+/target 393
+```
+## /battle
+Nagstatart ng *battle*.\
+Listahan ng mga ID ng mga *enemy* ay mahahanap [dito](./cmds/#monster-ids)\
+Paggamit:
+```sh
+/battle (ID ng enemy)
+
+Halimbawa:
+/battle 102202001 102202001
+```
+
+## /avatar
+Nagbibigay ng *avatar*.\
+Paggamit:
+```sh
+/avatar (add/remove) (avatarId)
+
+Halimbawa:
+/avatar add 1001
+```
+## /item
+Nagbibigay ng *item*.\
+Paggamit:
+```sh
+/item (item ID) o /item giveall
+```
+
+## /ban
+Bina-ban ang user na pinili.\
+Paggamit:
+```sh
+/ban (uid)
+
+Halimbawa:
+/ban 29
+```
+
+## /kick
+Kini-kick ang piniling *user*.\
+Paggamit:
+```sh
+/kick
+```
+
+## /kickall
+Kini-kick ang lahat ng *user* na naka konektado.\
+Paggamit:
+```sh
+/kickall
+```
+
+## /debug
+Literally debugs lmao\
+Paggamit:
+```sh
+/debug
+```
+## /exit
+Isinasara ang server.\
+Paggamit:
+```sh
+/exit
+```
+
+## /help
+Sinisend ang lahat ng command.\
+Paggamit:
+```sh
+/help
+```
+
+## /maintenance
+Inilalagay ang server sa *maintenance mode*.\
+Paggamit:
+```sh
+/maintenance (on/off) (maintenance message)
+
+Halimbawa:
+/maintenance on deez nuts
+```
+
+# IDs
+## Avatar IDs
+```json
+"AvatarID": 1001, - March 7th
+"AvatarID": 1002, - Dan Heng
+"AvatarID": 1003, - Himeko
+"AvatarID": 1004, - Welt
+"AvatarID": 1005, - Kafka
+"AvatarID": 1006, - Bronya (Silver Wolf)
+"AvatarID": 1008, - Arlan
+"AvatarID": 1009, - Asta
+"AvatarID": 1013, - Herta
+"AvatarID": 1101, - Bronya (Adult)
+"AvatarID": 1102, - Seele
+"AvatarID": 1103, - Serval
+"AvatarID": 1104, - Gepard
+"AvatarID": 1105, - Natasha
+"AvatarID": 1106, - Pela
+"AvatarID": 1107, - Clara
+"AvatarID": 1108, - Sampo
+"AvatarID": 1109, - Hook
+"AvatarID": 1203, - Luocha
+"AvatarID": 1204, - Jing Yuan
+"AvatarID": 1205, - Blade
+"AvatarID": 1206, - Sushang
+"GiveAll": /avatar giveall
+```
+
+## Plane IDs
+```json
+"Southern Snow Plains": "20101 (you need to go here to battle)"
+```
+### Para maghanap ng mga *map*
+Gamitin mo ang `MapEntryExcelTable.json`\
+Nahahanap ito sa `CrepeSR\src\data\excel`
+Dito, mahahanap mo ang mga plane ID at floor ID na magagamit mo para baguhin ang mga *scene*
+
+### Para magpalit ng *map*
+Gamiting mo ang `GetCurSceneInfoCsReq.ts`.\
+Ito ay nahahanap sa CrepeSR\src\server\packets\
+Kakailanganin mong i-edit ang Plane ID at Floor ID para baguhin ang mga *scene*
+
+
+## Monster IDs
+```json
+
+## big enemies
+"Doomsday Beast": "8015010"
+"Cocolia, Fabricated Mother": "1005010"
+
+## small enemies
+"Cocolia": "1004011"
+"Gepard": "1004021"
+"Svarog": "1014011"
+"Bronya": "100403001"
+"No name": "102202001"
+
+## elite enemies
+
+"Frigid Prowler": "1023020"
+"Stormbringer": "8003050"
+"Voidranger: Trampler": "8013012"
+"Silvermane Officer Dunn": "100301002"
+"Greyback Whale": "101301005"
+"no name": "101302003"
+```

@@ -1,4 +1,4 @@
-import Callout from 'nextra-theme-docs/callout'
+import { Callout } from 'nextra-theme-docs'
 
 # Connecting to CrepeSR manually
 ## Required to play
@@ -51,16 +51,12 @@ class Handlers
 5. Go to settings, then search “proxy” in the search bar.
 6. Select the setting for editing proxy stuff
 7. Then find “Use a proxy server”.
-```addressnportwhatever
+```
 Address - "127.0.0.1"
 Port - "8080"
 ```
 9. And toggle it on in the command prompt as administator.
 (the command is: `certutil -addstore root %USERPROFILE%\.mitmproxy\mitmproxy-ca-cert.cer`)
-<Callout emoji="⚠️">
-  **NOTE**\
-   Do not turn on the proxy server in the settings app.
-</Callout>
 
 ## Connecting to CrepeSR
 1. Install NodeJS from the link above

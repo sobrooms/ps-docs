@@ -1,10 +1,16 @@
 export default {
-  github: 'https://github.com/mangorifo/ps-docs',
+  useNextSeoProps() {
+    return {
+      titleTemplate: '%s - The PS Documentation'
+    }
+  },
+  project: {
+    link: 'https://github.com/mangorifo/ps-docs'
+  },
   docsRepositoryBase: 'https://github.com/mangorifo/ps-docs/',
   titleSuffix: ': The PS Documentation',
   logo: (
     <>
-      <span className="mr-2 font-extrabold hidden md:inline"> | </span>
       <span className="text-gray-600 font-normal hidden md:inline">
         Documentation on how to connect to PS
       </span>
@@ -18,12 +24,16 @@ export default {
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
     </>
   ),
-  search: true,
-  footer: true,
-  footerEditLink: false,
   darkMode: true,
-  nextLinks: true,
-  prevLinks: true,
-  footerText: <>built with Nextra | made by rrryfoo#8618</>
+  navigation: {
+    prev: true,
+    next: true,
+  },
+  footer: {
+    text: <>built with Nextra | made by rrryfoo#8618</>
+  },
+  i18n: [
+    { locale: 'en', text: 'English' },
+    { locale: 'ph', text: 'Filipino/Tagalog' }
+  ]
 }
-

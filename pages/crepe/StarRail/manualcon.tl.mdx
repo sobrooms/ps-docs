@@ -1,0 +1,72 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Manu-manong pagkokonekta sa *CrepeSR*
+## Kailangan para maglaro:
+* [Pinakabagong bersyon ng Python](https://www.python.org/downloads/)
+* [Node.js v14](https://nodejs.org/dist/v18.12.1/node-v18.12.1.pkg)
+* [mitmproxy](https://snapshots.mitmproxy.org/9.0.1/mitmproxy-9.0.1-windows-x64-installer.exe) o [Fiddler Classic](https://telerik-fiddler.s3.amazonaws.com/fiddler/FiddlerSetup.exe)
+* [CrepeSR](https://git.crepe.moe/Crepe-Inc/CrepeSR) at [CrepeSR Resources](https://git.crepe.moe/Crepe-Inc/CrepeSR-Resources)
+* [*anime game 2*](https://anonfiles.com/JdYejex2y7/StarRail_cbt_rar)
+* [MongoDB Compass](https://www.mongodb.com/try/download/compass) at [MongoDB Community](https://www.mongodb.com/try/download/community)
+* [Visual Studio (C++ workload)](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=Community&channel=Release&version=VS2022&source=VSLandingPage&cid=2030&passive=false)
+
+## Setup (With fiddler)
+1. I-download ang MongoDB Compass mula sa link sa itaas. Pagkatapos simulan ang app at mag-click sa pindutang "Kumonekta". Maaari mong i-minimize ang app pagkatapos.
+
+2. I-download ang CrepeSR mula sa link sa itaas at pindutin ang berdeng button na tinatawag na "Code" pagkatapos ay i-click ang "Download ZIP". Gawin din ito para sa link ng "CrepeSR-Resources".
+
+3. I-extract ang folder na "CrepeSR-main" at pumunta sa src folder at gumawa ng bagong folder na ang pangalan nito ay dapat "data"
+
+4. Pagkatapos ay i-extract ang "CrepeSR-Resources-main" at i-click ito at kopyahin ang lahat (maliban sa "README.md") sa "CrepeSR-main\src\data"
+
+5. Pagkatapos mong i-install ang Fiddler Classic, kapag tapos na ito, buksan ito. Pagkatapos nito, pumunta ka sa Tools > Options > Connections > Fiddler Classic listens sa port at itakda ang port sa 8080
+
+6. Pagkatapos nito, i-paste ang script na ito:
+```js
+import System.Windows.Forms;
+import Fiddler;
+import System.Text.RegularExpressions;
+
+class Handlers
+{
+    static function OnBeforeRequest(oS: Session) {
+        if (oS.host.Equals("overseauspider.yuanshen.com:8888")) {
+            oS.oRequest.FailSession(404, "Not Found", "Not Found");
+        }
+        else if(oS.host.EndsWith(".yuanshen.com") || oS.host.EndsWith(".starrails.com") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com")) {
+            oS.host = "localhost";
+        }
+    }
+};
+```
+
+7. I-save ang script
+
+## Setup (with mitmproxy)
+1. I-download ang mitmproxy mula sa link na ibinigay sa itaas.
+2. Una sa lahat, Mag shift + right click sa folder ng server ng CrepeSR. (ang parehong folder na may file na tawag "proxy.py")
+3. I-click ang “open powershell window here”.
+4. Kapag nag-load ang powershell, i-type ito: `mitmdump -s proxy.py -k`
+5. Pumunta sa mga setting, pagkatapos ay ilagay ang "proxy" sa search bar.
+6. I-select ang "Change proxy settings"
+7. Pagkatapos, hanapin ang “Use a proxy server”.
+```
+Address - "127.0.0.1"
+Port - "8080"
+```
+9. At i-toggle ito sa command prompt bilang administrator.
+(ang command para dito ay: `certutil -addstore root %USERPROFILE%\.mitmproxy\mitmproxy-ca-cert.cer`)
+
+## Pagkokonekta sa CrepeSR
+1. I-install ang NodeJS mula sa *link* sa itaas.
+2. Pagkatapos nito, pumunta ka sa folder ng *private server* (ang folder na may file na tawag "`proxy.py`") at pindutin ang *shift* at ang *right click* at mag-click sa "Buksan ang PowerShell window dito" (O sa *Windows 11* "Buksan sa Terminal")
+3. Sa terminal window i-type ang `npm install`. Kailangan mo lang gamitin ang command na ito nang isang beses. (Kailangan mong siguraduhing na mayroong kang *Visual Studio* na may "Desktop development with C++" na plugin na naka-install. Ito ay isa sa mga opsyon pagkatapos mong i-install ito)
+4. Matapos ang command na "npm install" ay tapos na i-type ang "npm run start" at dapat magsimula ang CrepeSR.
+## Pag lo-login
+1. Sa loob ng command prompt ng CrepeSR, gumawa ng account na may command na: `account create [username] [uid]` (hal. `account create CrepeSR 1`)
+
+2. Ibuksan `StarRail.exe`. Mag log-in gamit ang iyong ginawang *username*.
+
+<Callout type="info">
+  Gamiting ang kahit anong *password*.
+</Callout>
