@@ -5,7 +5,7 @@ const nex = require('nextra')({
 })
 module.exports = nex({
   i18n: {
-    locales: ['en', 'tl'],
+    locales: ['en', 'ph'],
     defaultLocale: 'en'
   }
 })
