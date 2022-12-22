@@ -35,5 +35,9 @@ export default {
   i18n: [
     { locale: 'en', text: 'English' },
     { locale: 'tl', text: 'Filipino/Tagalog' }
-  ]
+  ],
+  primaryHue: {
+    dark: 50,
+    light: 25
+  }
 }
