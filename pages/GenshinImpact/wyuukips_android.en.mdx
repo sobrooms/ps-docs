@@ -1,0 +1,81 @@
+import { Callout } from 'nextra-theme-docs'
+
+# Connecting to Android GI PS
+<Callout type="info">
+  **This method uses a renamed folder package name, so you need the official game data from the [official app](https://play.google.com/store/apps/details?id=com.miHoYo.GenshinImpact&hl=en_US&gl=US).**
+</Callout>
+
+## Prerequisites
+1. Download one of the [modded app launchers](https://ps-docs.theonesaya.repl.co/GenshinImpact/wyuukips_android#modded-launchers-apk)
+2. Download and install the official game. **Make sure you download the game's data first by playing for the first time on the official server (or just atleast just go in the game and tap when the game loads, to download game files)**. You may also download audio packs if you would like. (in-game's *Audio* tab in settings).
+3. Download and install the "Ziparchive" application.
+4. Open *Ziparchive* and find the game's data folder in **`storage/emulated/0/Android/data`** and find a folder named **`com.miHoYo.GenshinImpact`**.
+5. Rename `com.miHoYo.GenshinImpact` to `com.miHoYo.GenshinImpact.backup`. (*Android 13 will need root access to do this, Android 11-12 or other versions don't need root access*)
+6. Then after this, uninstall the official application (not the game folder, but the actual application named "Genshin Impact" in your home screen). Aftee that, install one of the [modded app launchers](https://ps-docs.theonesaya.repl.co/GenshinImpact/wyuukips_android#modded-launchers-apk).
+7. Open *Ziparchive* again and find the backup of the game data's folder, which is still located in **`/storage/emulated/0/Android/data`** (the one that you should have named `com.miHoYo.GenshinImpact.backup`)
+8. Rename the backup folder back to the original name. (the original name is `com.miHoYo.GenshinImpact`)
+9. Open *Genshin Impact* and play the private server
+
+## 3.3 Game Data (GRASSCUTTER SERVER)
+<Callout type="info">
+  **Each part is 4GB, meaning you have to download all of them. All 22GB (Includes English and Japanese audio)**
+</Callout>
+
+> 1. [Part 1 (md5: 161B5B3F1776D2E9A8E4519B1F48A078)](https://anonfiles.com/W3y8j1Nay6/com.miHoYo.GenshinImpact_z01)
+> 2. [Part 2 (md5: F9648E88377CF25222C4C1D5D3737FF4)](https://anonfiles.com/Z8K3jaN9y9/com.miHoYo.GenshinImpact_z02)
+> 3. [Part 3 (md5: 1C66F500768AE3F0CB635F06399C449D)](https://anonfiles.com/cbQ9keN4y4/com.miHoYo.GenshinImpact_z03)
+> 4. [Part 4 (md5: C87B741A0AFFA69488CDDC6E2C421D65)](https://anonfiles.com/z3c7l4Ney9/com.miHoYo.GenshinImpact_z04)
+> 5. [Part 5 (md5: 8B0410B80E8641279E15DBF77E200070)](https://anonfiles.com/vat4lcN8y7/com.miHoYo.GenshinImpact_z05)
+> 6. [Part 6 (md5: 8C053C363D336E88945EC46FE38516C1)](https://anonfiles.com/0aJ8m7Ney1/com.miHoYo.GenshinImpact_zip)
+<Callout type="info">
+  **NOTE:**\
+  Rename the folder to `com.miHoYo.YuukiPS` if you're using *version 2* of the modded app launcher. (IF YOU'RE ON GRASSCUTTER SERVER)
+</Callout>
+## 3.3 Game Data (GIO SERVER)
+<Callout type="info">
+  **Same as before, each part is 4GB, meaning you have to download all of them. All 22GB (Includes English and Japanese audio)**
+</Callout>
+
+> 1. [Part 1 (md5: C6138A8CF8B9E220825C64A6A1FB1BD4)](https://anonfiles.com/j0adp3Nfyb/com.miHoYo.ys.x_z01)
+> 2. [Part 2 (md5: 1FF7B3AEB29C045B29E64D6B12412C01)](https://anonfiles.com/kb00p4N3y0/com.miHoYo.ys.x_z02)
+> 3. [Part 3 (md5: 1848D9343C3BBC8CA7B3931392DCA0CC)](https://anonfiles.com/EbM4peN6y6/com.miHoYo.ys.x_z03)
+> 4. [Part 4 (md5: 1AA48B9CBC359B321D7DDACCCFB8BEFC)](https://anonfiles.com/Hcnaq4N2yb/com.miHoYo.ys.x_z04)
+> 5. [Part 5 (md5: 262F0906C7B0FD76EE92ECB0F3055505)](https://anonfiles.com/vft8q2N6yf/com.miHoYo.ys.x_zip)
+
+<Callout type="info">
+  **NOTE:**\
+  Rename the folder from `com.miHoYo.ys.x` to `com.miHoYo.GenshinImpact` if you're using *version 2* of the modded app launcher. (IF YOU'RE ON GIO SERVER)
+</Callout>
+
+
+<Callout type="info">
+  **Remember this:**\
+  Make sure you check the files with a [md5 checker tool](https://play.google.com/store/apps/details?id=com.simonedev.md5checker&hl=en&gl=US) to make sure it has the same value, so that the file you downloaded is the original one and is not damaged. So if the md5 of the downloaded zip part files, then redownload them.
+</Callout>
+
+## FAQ (Frequently asked questions)
+<Callout type="info" emoji="💬">
+  **Q: "Why am I stuck at "Preparing to load data - 0.00%"?"**\
+  *A: If you actually read everything, you must first download the game's data from the official game. You cannot skip this. Alternatively, if you don't want to download from the official game, you can download game data from somewhere else, or from a backup of your other phone...*
+</Callout>
+<Callout type="info" emoji="💬">
+  **Q: "What's the difference between V1 and V2?"**\
+  *A: V1 can only connect to the YuukiPS server.\
+  V2 can also connect to localhost, official server (sometimes), and YuukiPS. Also 0kb download speed is fixed in this update.*
+</Callout>
+<Callout type="info" emoji="💬">
+  **Q: "What's the difference between GIO and the Grasscutter Server?"**\
+  *A: GIO is a clone of the official server, which means all functions work without any bugs and quests. All works but can only be ran on 3.2.*
+</Callout>
+
+## Modded Launchers (APK)
+### Launcher (for 3.3, Grasscutter servers)
+> 1. [Version 1](https://file2.yuuki.me/p/Public/Local_EU/Project/GenshinImpact/Data/Android/3.3.0/Global/YuukiPS.apk)
+> 2. [Version 2](https://file2.yuuki.me/p/Public/Local_EU/Project/GenshinImpact/Data/Android/3.3.0/Global/YuukiPS_V2.apk) | [GD1](https://file.yuuki.me/0:/Project/GenshinImpact/Data/Android/3.3.0/Global/YuukiPS_V2.apk) | [GD2](https://file2.yuuki.me/GD1/Project/GenshinImpact/Data/Android/3.3.0/Global/YuukiPS_V2.apk) | [GD3](https://file2.yuuki.me/GD2/Project/GenshinImpact/Data/Android/3.3.0/Global/YuukiPS_V2.apk) | [Terabox](https://terabox.com/s/1cE9SJVfrMB3qsqKFHoBSgQ) | [Mediafire](https://www.mediafire.com/file/98ipo58puxdngxv/YuukiPS_V2.apk/file) | [mega](https://mega.nz/file/U4tVAIZK#fnoWQoy96PpJeS_FKnUPQdOnKTpE8JY2LIq7M8fsGng)
+
+### Launcher (for 3.2, GIO servers)
+> 1. [Version 1](https://file2.yuuki.me/p/Public/Local_EU/Project/GenshinImpact/Data/Android/3.2.0/Global/YuukiPS.apk)
+> 2. [Version 2](https://file2.yuuki.me/p/Public/Local_EU/Project/GenshinImpact/Data/Android/3.2.0/Global/YuukiPS_V2.apk)
+
+
+*info is taken from [yuuki.me](https://www.yuuki.me/2022/12/genshin-impact-private-server-android.html) and rewritten here*
