@@ -1,3 +1,4 @@
+import Image from "next/image";
 export default {
   editLink: {
     text: "Edit this page on GitHub →"
@@ -14,16 +15,22 @@ export default {
   titleSuffix: ': The PS Documentation',
   logo: (
     <>
-      <span className="text-gray-600 font-normal hidden md:inline">
-        Documentation on how to connect to PS
+      <Image
+        src="/ic.png"
+        alt="Logo/Icon"
+        width={25}
+        height={25}
+      />
+      <span style={{ marginLeft: '.4em', fontWeight: 200 }}>
+        Private Server Documentation
       </span>
     </>
   ),
   head: (
     <>
-      <meta property="description" content="anime game company ps stuff and other stuff 🥺🥺🥺🥺" />
-      <meta property="theme-color" content="#c7a09d" />
-      <link rel="shortcut icon" href="/favicon.ico" />
+      <meta property="og:description" content="anime game company ps stuff and other stuff 🥺🥺🥺🥺" />
+      <meta name="theme-color" data-react-helmet="true" content="#c7a09d" />
+      <link rel="shortcut icon" href="/ic.png" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
     </>
   ),
@@ -39,4 +46,8 @@ export default {
     { locale: 'en', text: 'English' },
     { locale: 'tl', text: 'Filipino/Tagalog' }
   ],
+  primaryHue: {
+    dark: 41,
+    light: 41
+  }
 }
