@@ -43,8 +43,14 @@ export default {
     text: <>built with Nextra | made by rrryfoo#8618</>
   },
   i18n: [
-    { locale: 'en', text: 'English' },
-    { locale: 'tl', text: 'Filipino/Tagalog' }
+    {
+      locale: 'en',
+      text: 'English'
+    },
+    {
+      locale: 'tl',
+      text: 'Filipino - Tagalog'
+    }
   ],
   primaryHue: {
     dark: 41,
