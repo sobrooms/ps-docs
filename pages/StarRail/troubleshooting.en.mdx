@@ -3,18 +3,16 @@ import Image from 'next/image'
 # Troubleshooting
 
 ## E11000 Duplicate Key Error Collection
-![E11000 Dupe key error collection](../../../public/e11000-2.png)
+![E11000 Dupe key error collection](../../public/e11000-2.png)
 Open MongoDB Compass, connect to localhost, go to the document indexes and press the delete button. Then retry.
 
-![E10000 Dupe key error collection](../../../public/e11000-1.png)
+![E10000 Dupe key error collection](../../public/e11000-1.png)
 
 ## Global Distribution Error
-![Global Distribution Error](../../../public/distribution.png)
+![Global Distribution Error](../../public/distribution.png)
 MongoDB needs to be running and you need to be connected to MongoDB Compass.\
 Also, you need the C++ plugin for Visual Studio
 ## EREFUSEDCONNECT (MongoDB Compass)
 
 You need to start the MongoDB service.
-```bash
-/net start MongoDB
-```
+1. Go to the command prompt: `Windows key + R -> cmd /k net start MongoDB`
