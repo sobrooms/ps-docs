@@ -45,11 +45,11 @@ export default {
   i18n: [
     {
       locale: 'en',
-      text: 'English'
+      text: 'English (EN-US)'
     },
     {
       locale: 'tl',
-      text: 'Filipino - Tagalog'
+      text: 'Filipino - Tagalog (TL)'
     }
   ],
   primaryHue: {
