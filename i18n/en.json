@@ -1,0 +1,25 @@
+{
+  "index": {
+    "title": "docs.ps.rrryfoo.cf",
+    "available_translations": {
+      "title": "Available translations",
+      "translations": [
+        "English, ",
+        "Filipino"
+      ]
+    },
+    "foot": "Please contribute if you would like to help add translations!"
+  },
+  "Hoyo": {
+    "GenshinImpact": {
+      "i": {
+        "main": "For connecting to Genshin Impact's private server."
+      }
+    },
+    "StarRail": {
+      "i": {
+        "main": "For connecting to Star Rail's closed beta test private servers."
+      }
+    }
+  }
+}

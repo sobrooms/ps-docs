@@ -17,10 +17,14 @@ Example for creating accounts:
 Use this command before using battle/give\
 Usage:
 ```sh
-/target (uid)
+/target (uid/port)
 
-Example:
-/target 393
+With UID:
+target 393
+
+With port:
+t
+target (port of your current logged in user to target, ex. 49420)
 ```
 ## /battle
 Starts a battle.\
@@ -31,6 +35,8 @@ Usage:
 
 Example:
 /battle 102202001 102202001
+
+Each enemy ID provided spawns 1 monster, so if you give 2 IDs, it will spawn 2
 ```
 
 ## /avatar
@@ -47,22 +53,24 @@ Usage:
 ```sh
 /item (item ID) or /item giveall
 ```
+> The amount of items given on /item giveall may be changed on `CrepeSR\src\commands\item.ts`
+
 
 ## /ban
 Bans a user.\
 Usage:
 ```sh
-/ban (uid)
+/ban (uid/port)
 
 Example:
-/ban 29
+/ban 29 or /ban 19191
 ```
 
 ## /kick
 Kicks a user from the server\
 Usage:
 ```sh
-/kick
+/kick (uid/port)
 ```
 
 ## /kickall
@@ -142,24 +150,23 @@ Here, you can find plane ids & floor ids which you can use to change the scenes
 ### To change maps
 Use GetCurSceneInfoCsReq.ts\
 Which is found in CrepeSR\src\server\packets\
-You will need to edit the Plane IS and Floor ID to change scenes
+You will need to edit the Plane ID and Floor ID to change scenes
 
 
 ## Monster IDs
 ```json
-
-## big enemies
+// big enemies
 "Doomsday Beast": "8015010"
 "Cocolia, Fabricated Mother": "1005010"
 
-## small enemies
+// elite enemies
 "Cocolia": "1004011"
 "Gepard": "1004021"
 "Svarog": "1014011"
 "Bronya": "100403001"
 "No name": "102202001"
 
-## elite enemies
+// small enemies
 
 "Frigid Prowler": "1023020"
 "Stormbringer": "8003050"
