@@ -1,0 +1,65 @@
+import { Callout, Tab, Tabs } from 'nextra-theme-docs';
+
+## Prerequisites
+> * [MongoDB](https://www.mongodb.com/try/download/community)
+> * [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+> * [Latest/any Grasscutter JAR](https://github.com/Grasscutters/Grasscutter/releases)
+> * [mitmproxy](https://mitmproxy.org) or [Fiddler Classic](https://www.telerik.com/download/fiddler)
+
+## Starting the server
+1. Create an empty folder with any name
+2. Put the downloaded Grasscutter .jar file into the folder
+3. `Shift + Right Click` then click `Open PowerShell window here`
+4. Put in: `java -jar <grasscutter jar filename>`
+<Callout type="info">
+  This will create additional folders in your working directory.
+</Callout>
+5. Download:
+> * [Grasscutter Resources](https://git.crepe.moe/grasscutters/Grasscutter_Resources/-/raw/main/Grasscutter_Resources-3.3.zip?inline=false)
+> * [Keystore](https://github.com/Grasscutters/Grasscutter/raw/development/keystore.p12)
+6. After, put those files into the folder (directory) you made earlier.
+<Callout type="info">
+  **NOTE**\
+  If you are running in the project's root folder (ie. you cloned the repo from GitHub and you are running the server in that folder), these files will be already be present.
+</Callout>
+7. Make sure to setup your operating system firewall settings:
+> Make sure to allow their port on windows firewall settings (80/443/8888, and 22102)
+8. Put in `java -jar <grasscutter jar filename>` in the terminal again.
+
+## Connecting to the server
+<Tabs items={['using fiddler', 'using mitmproxy']}>
+<Tab>
+1. Go to Fiddler Classic, go to `Tools > Options > Connections > Fiddler Classic` listens on port and set the port to `8080`
+  
+2. Afterwards go to the top-right of the screen and press on `FiddlerScript` and paste this script this:
+
+```js filename="Fiddler Classic config"
+import System.Windows.Forms;
+import Fiddler;
+import System.Text.RegularExpressions;
+
+class Handlers
+{
+    static function OnBeforeRequest(oS: Session) {
+        if (oS.host.Equals("overseauspider.yuanshen.com:8888")) {
+            oS.oRequest.FailSession(404, "Not Found", "Not Found");
+        }
+        else if(oS.host.EndsWith(".yuanshen.com") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com")) {
+            oS.host = "localhost";
+        }
+    }
+};
+```
+
+3. Save the script and launch the game
+</Tab>
+<Tab>
+1. Go to Grasscutter's root folder (directory)
+2. Open another terminal and type in: `mitmdump -s proxy.py -k`
+3. Open *anime game* and play
+</Tab>
+</Tabs>
+
+## Connecting with SobseedPS
+We have made our own private server, and the way you start it is the same way you start Grasscutter!\
+So, if you would like to play on our server, follow all the steps above, except instead of downloading Grasscutter's .jar, [download SobseedPS' jar file!](https://sobroom.rrryfoo.cf/sobseed/spcfrm-psdoc)

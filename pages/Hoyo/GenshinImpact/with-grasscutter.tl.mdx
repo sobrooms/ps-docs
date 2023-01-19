@@ -1,0 +1,65 @@
+import { Callout, Tab, Tabs } from 'nextra-theme-docs';
+
+## Prerequisites
+> * [MongoDB](https://www.mongodb.com/try/download/community)
+> * [JDK 17](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+> * [Pinakabago/kahit anong Grasscutter JAR](https://github.com/Grasscutters/Grasscutter/releases)
+> * [mitmproxy](https://mitmproxy.org) o [Fiddler Classic](https://www.telerik.com/download/fiddler)
+
+## *Starting the server*
+1. Gumawa ng folder na may kahit anong pangalan
+2. Ilagay ang nadownload na Grasscutter .jar na file sa folder na iyong ginawa
+3. `Shift + Right Click` then click `Open PowerShell window here`
+4. Ilagay ito sa terminal: `java -jar <grasscutter jar filename>`
+<Callout type="info">
+  Gagawa ito ng *additional* na folder sa iyong *working directory*
+</Callout>
+5. I-download ang ito:
+> * [Grasscutter Resources](https://git.crepe.moe/grasscutters/Grasscutter_Resources/-/raw/main/Grasscutter_Resources-3.3.zip?inline=false)
+> * [Keystore](https://github.com/Grasscutters/Grasscutter/raw/development/keystore.p12)
+6. Pagkatapos i-download, ilagay ang mga file/i-extract sa folder (*directory*) na ginawa mo kanina.
+<Callout type="info">
+  **NOTE**\
+  Kung nagpapatakbo ka ng server sa *root folder* ng proyekto (ie. *ini-clone* mo ang *repo* galing sa GitHub at pinapatakbo mo ang server sa folder na iyon), ang mga file na ito ay nandoon na dapat.
+</Callout>
+7. Make sure to setup your operating system firewall settings: 
+> Siguraduhing naka-allow ang port sa windows firewall settings (80/443/8888, at 22102)
+8. Ilagay ang `java -jar <pangalan ng grasscutter jar>` sa terminal ulit.
+
+## Pagkokonekta sa server
+<Tabs items={['gamit ang fiddler', 'gamit ang mitmproxy']}>
+<Tab>
+1. Ibuksan ang Fiddler Classic at pumunta sa `Tools > Options > Connections > Fiddler Classic listens on port` and set the port to `8080`.
+  
+2. Afterwards go to the right of the screen and press on FiddlerScript and paste this script this: Pagkatapos, pumunta sa kanang itaas ng iyong screen, i-click ang `FiddlerScript` at i-paste ito:
+
+```js filename="Fiddler Classic config"
+import System.Windows.Forms;
+import Fiddler;
+import System.Text.RegularExpressions;
+
+class Handlers
+{
+    static function OnBeforeRequest(oS: Session) {
+        if (oS.host.Equals("overseauspider.yuanshen.com:8888")) {
+            oS.oRequest.FailSession(404, "Not Found", "Not Found");
+        }
+        else if(oS.host.EndsWith(".yuanshen.com") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com")) {
+            oS.host = "localhost";
+        }
+    }
+};
+```
+
+3. I-save ang script at buksan ang laro
+</Tab>
+<Tab>
+1. Pumunta sa *root folder* ng Grasscutter
+2. I-buksan ulit ang terminal at ilagay ang: `mitmdump -s proxy.py -k`
+3. Buksan ang *anime game* at maglaro!
+</Tab>
+</Tabs>
+
+## Connecting with SobseedPS
+We have made our own private server, and the way you start it is the same way you start Grasscutter!\
+So, if you would like to play on our server, follow all the steps above, except instead of downloading Grasscutter's .jar, [download SobseedPS' jar file!](https://sobroom.rrryfoo.cf/sobseed/spcfrm-psdoc)
