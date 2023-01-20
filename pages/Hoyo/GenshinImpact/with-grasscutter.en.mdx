@@ -23,9 +23,8 @@ import { Callout, Tab, Tabs } from 'nextra-theme-docs';
   If you are running in the project's root folder (ie. you cloned the repo from GitHub and you are running the server in that folder), these files will be already be present.
   Also, you can either extract the Grasscutter resources .zip file OR, optionally you can **keep it as zip, then change config.json when the server is ready and change resources path to where the zip is (recommended to put the .zip in the folder that you made, so you can just use `"resources": "./res.zip"`). This is so that the resources don't take much storage.**
 </Callout>
-7. Make sure to setup your operating system firewall settings:
-> Make sure to allow their port on windows firewall settings (80/443/8888, and 22102)
-8. Put in `java -jar <grasscutter jar filename>` in the terminal again.
+
+7. Put in `java -jar <grasscutter jar filename>` in the terminal again.
 
 ## Connecting to the server
 <Tabs items={['using fiddler', 'using mitmproxy']}>
@@ -35,18 +34,15 @@ import { Callout, Tab, Tabs } from 'nextra-theme-docs';
 2. Afterwards go to the top-right of the screen and press on `FiddlerScript` and paste this script this:
 
 ```js filename="Fiddler Classic config"
+import System;
 import System.Windows.Forms;
 import Fiddler;
 import System.Text.RegularExpressions;
-
 class Handlers
 {
     static function OnBeforeRequest(oS: Session) {
-        if (oS.host.Equals("overseauspider.yuanshen.com:8888")) {
-            oS.oRequest.FailSession(404, "Not Found", "Not Found");
-        }
-        else if(oS.host.EndsWith(".yuanshen.com") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com")) {
-            oS.host = "localhost";
+        if(oS.host.EndsWith(".yuanshen.com")  || oS.host.EndsWith(".yuanshen.com:12401") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com") || oS.uriContains("http://overseauspider.yuanshen.com:8888/log")) {
+            oS.host = "127.0.0.1"; // localhost
         }
     }
 };
@@ -56,8 +52,9 @@ class Handlers
 </Tab>
 <Tab>
 1. Go to Grasscutter's root folder (directory)
-2. Open another terminal and type in: `mitmdump -s proxy.py -k`
-3. Open *anime game* and play
+2. Download [the proxy.py file](../../gc/proxy.py) and put it in the folder you made
+3. Open another terminal and type in: `mitmdump -s proxy.py -k`
+4. Open *anime game* and play
 </Tab>
 </Tabs>
 
