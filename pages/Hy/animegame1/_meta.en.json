@@ -3,5 +3,6 @@
   "troubleshooting": "Troubleshooting (GI)",
   "yuukips_android": "Connecting to YuukiPS (Android)",
   "cbt": "Playing on CBT 1",
-  "with-grasscutter": "Connecting with Grasscutter"
+  "with-grasscutter": "Connecting with Grasscutter",
+  "ios": "Connecting to iOS private servers"
 }
